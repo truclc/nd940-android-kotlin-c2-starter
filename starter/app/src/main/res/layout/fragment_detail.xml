@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="asteroid"
             type="com.udacity.asteroidradar.Asteroid" />
@@ -18,6 +17,7 @@
         <ImageView
             android:id="@+id/activity_main_image_of_the_day"
             android:layout_width="match_parent"
+            style="@style/StyleDetailTitle"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
             app:asteroidStatusImage="@{asteroid.potentiallyHazardous}"
