@@ -21,6 +21,7 @@
     <string name = "nasa_picture_of_day_content_description_format"> Hình ảnh trong ngày của NASA:% s </string>
 
     <string name="data_error">Lỗi dữ liệu!</string>
-
+    <string name="data_error_again">Lỗi dữ liệu nữa, hãy kiểm tra API_KEY!</string>
+    <string name="try_again">Đang thử lại!</string>
 
 </resources>

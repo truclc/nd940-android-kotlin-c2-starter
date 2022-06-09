@@ -11,6 +11,8 @@ import kotlinx.coroutines.launch
 class MainViewModel(private val repository: AsteroidRepository, application: Application) :
     AndroidViewModel(application) {
 
+    private var dataError = false
+
     private val _showLoading = MutableLiveData<Boolean>(false)
     val showLoading: LiveData<Boolean>
         get() = _showLoading
@@ -46,8 +48,26 @@ class MainViewModel(private val repository: AsteroidRepository, application: App
             } catch (cause: Throwable) {
                 cause.printStackTrace()
                 _showErrorMsg.value = application.getString(R.string.data_error)
+                dataError = true
+
             } finally {
                 _showLoading.value = false
+            }
+            if (dataError) {
+                try {
+                    _showLoading.value = true
+                    _showErrorMsg.value = application.getString(R.string.try_again)
+                    repository.refreshAsteroids()
+                    dataError = false
+                } catch (cause: Throwable) {
+                    cause.printStackTrace()
+                    _showErrorMsg.value = application.getString(R.string.data_error_again)
+                    dataError = true
+
+                } finally {
+                    _showLoading.value = false
+
+                }
             }
         }
     }

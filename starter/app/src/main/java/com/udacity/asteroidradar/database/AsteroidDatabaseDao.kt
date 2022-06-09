@@ -18,7 +18,7 @@ interface AsteroidDatabaseDao {
     fun getAsteroidsInRange(fromDate: String, toDate: String): LiveData<List<AsteroidDatabaseEntities>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAll(vararg videos: AsteroidDatabaseEntities)
+    suspend fun insertAll(vararg videos: AsteroidDatabaseEntities)
 
     @Query("DELETE FROM AsteroidDatabaseEntities WHERE date(closeApproachDate) < date(:date)")
     fun deleteAsteroidsPreviousDate(date: String)

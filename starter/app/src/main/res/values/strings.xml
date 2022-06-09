@@ -21,6 +21,7 @@
     <string name="nasa_picture_of_day_content_description_format">NASA\'s picture of day: %s</string>
 
     <string name="data_error">Data error!</string>
-
+    <string name="data_error_again">Data error again, check your API_KEY!</string>
+    <string name="try_again">Trying again!</string>
 
 </resources>

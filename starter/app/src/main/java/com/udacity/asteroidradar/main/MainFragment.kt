@@ -81,6 +81,7 @@ class MainFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        Log.d(TAG, "onOptionsItemSelected: itemId= " + item.itemId)
         when (item.itemId) {
             R.id.next_week_asteroids -> viewModel.updateFilter(AsteroidApiFilter.SHOW_WEEK_ASTEROIDS)
             R.id.today_asteroids -> viewModel.updateFilter(AsteroidApiFilter.SHOW_TODAY_ASTEROIDS)
